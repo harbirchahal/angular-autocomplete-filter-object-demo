@@ -1,0 +1,29 @@
+<mat-form-field class="full-width"
+                appearance="fill">
+  <mat-icon matPrefix *ngIf="config.icon">
+    {{ config.icon }}
+  </mat-icon>              
+  <mat-label *ngIf="config.label">
+    {{ config.label }}
+  </mat-label>
+  <input matInput
+        type="text"
+        [formControl]="inputCtrl"
+        [matAutocomplete]="auto">
+  <mat-autocomplete #auto="matAutocomplete"
+                    [displayWith]="displayLabelFn"
+                    (optionSelected)="optionSelected.emit($event.option.value)">
+    <mat-option *ngFor="let option of filteredOptions | async; trackBy: trackByIdFn"
+                [value]="option">
+      {{ option.label }}
+    </mat-option>
+  </mat-autocomplete>
+  <mat-icon matSuffix
+            *ngIf="inputCtrl.value"
+            (click)="inputCtrl.setValue('')">
+    close
+  </mat-icon>
+  <mat-hint *ngIf="config.hint">
+    {{ config.hint }}
+  </mat-hint>
+</mat-form-field>

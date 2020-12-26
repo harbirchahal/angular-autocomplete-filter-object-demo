@@ -4,4 +4,12 @@
   </mat-toolbar>
 </header>
 <main>
+  <mat-card>
+    <mat-card-content>
+      <autocomplete-object [options]="people | fn: peopleToOptions"
+                            [config]="config"
+                            (optionSelected)="doSomething($event)">      
+      </autocomplete-object>
+    </mat-card-content>
+  </mat-card>
 </main>
