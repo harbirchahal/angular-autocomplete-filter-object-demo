@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { DATA } from './data';
 import { mapPeopleToOptions, Person, Config } from './models';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
